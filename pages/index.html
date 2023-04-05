@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link rel="stylesheet" href="../static/css/blog.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="top-container top-container_background-desert">
+      <div class="heading">
+        <span class="heading__logo">Escape</span>
+        <nav class="heading__links">
+          <a href="#" class="heading__link">HOME</a>
+          <a href="#" class="heading__link">CATEGORIES</a>
+          <a href="#" class="heading__link">ABOUT</a>
+          <a href="#" class="heading__link">CONTACT</a>
+        </nav>
+      </div>
+      <div class="subheading subheading_background-desert">
+        <h1 class="subheading__title">Let's do it together!</h1>
+        <h2 class="subheading__subtitle">We trawel the world in search of stories. Come along for the ride.</h2>
+        <button class="subheading__button">View Latest Posts</button>
+      </div>
+    </header>
+    <div class="menu">
+      <a class="menu__link" href="#">Nature</a>
+      <a class="menu__link" href="#">Photography</a>
+      <a class="menu__link" href="#">Relaxation</a>
+      <a class="menu__link" href="#">Vacation</a>
+      <a class="menu__link" href="#">Travel</a>
+      <a class="menu__link" href="#">Adventure</a>
+    </div>
+    <div class="blog-posts">
+      <h2 class="blog-posts__title">Featured Posts</h2>
+      <hr class="blog-posts__line">
+      <div class="featured-posts">
+        {{ range .FeaturedPosts }}
+        <article class="featured-post {{ .BackgroundImageModifier }}">
+          <h3 class="featured-post__title">{{ .Title }}</h3>
+          <p class="featured-post__description">{{ .Subtitle }}</p>
+          <div class="featured-post__footing">
+            <div class="featured-post__image-and-name">
+              <img class="featured-post__img-author" src="{{ .AuthorAvatar }}" alt="{{ .Author }}">
+              <span class="featured-post__author">{{ .Author }}</span>
+            </div>
+            <span class="featured-post__publish-date">{{ .PublishDate }}</span>
+          </div>
+        </article>
+        {{ end }}
+      </div>
+      <h2 class="blog-posts__title">Most Recent</h2>
+      <hr class="blog-posts__line">
+      <div class="most-recent-posts">
+        {{ range .MostRecent }}
+        <article class="most-recent-post">
+          <img class="most-recent-post__img" src="{{ .PhotoImage }}" alt="{{ .Title }}">
+          <h3 class="most-recent-post__title">{{ .Title }}</h3>
+          <p class="most-recent-post__description">{{ .Subtitle }}</p>
+          <hr class="most-recent-post__line">
+          <div class="most-recent-post__footer">
+            <div class="most-recent-post__image-and-name">
+              <img class="most-recent-post__img-author" src="{{ .AuthorAvatar }}" alt="{{ .Author }}">
+              <span class="most-recent-post__author">{{ .Author }}</span>
+            </div>
+            <span class="most-recent-post__publish-date">{{ .PublishDate }}</span>
+          </div>
+        </article>
+        {{ end }}        
+      </div>
+    </div>
+    <div class="intouch-footer">
+      <div class="intouch-footer__intouch">
+        <h2 class="intouch__name">Stay in Touch</h2>
+        <form class="intouch__application">
+          <input class="application__email" type="text" name="email" required="required" placeholder="Enter your email address">
+          <button class="application__submit" type="submit">Submit</button>
+        </form>
+      </div>
+      <footer class="footing">
+        <span class="footing__logo">Escape</span>
+        <nav class="footing__links">
+          <a href="#" class="footing__link">HOME</a>
+          <a href="#" class="footing__link">CATEGORIES</a>
+          <a href="#" class="footing__link">ABOUT</a>
+          <a href="#" class="footing__link">CONTACT</a>
+        </nav>
+      </footer>
+    </div>  
+  </body>
+</html>
